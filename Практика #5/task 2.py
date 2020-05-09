@@ -1,6 +1,10 @@
 import graphics as gr
 import math
-
+"""
+Это плохое решение второго задания из практики №5.
+Со временем маятник улетает с траектории, возможно это из-за низкой точности вычислений.
+Более того нету возможности изменить начальный угол смещения и длинну веревки
+"""
 SIZE_X = 800
 SIZE_Y = 800
 
@@ -16,8 +20,7 @@ circle = gr.Circle(gr.Point(x, y), R)
 circle.setFill('Blue')
 circle.draw(window)
 
-# a = math.radians(90)
-# L = math.sqrt((500-x)**2+(500-y)**2)
+
 max_amp = SIZE_X - circle.getCenter().x
 velocity = gr.Point(0, 0)
 acceleration = gr.Point(0, 2)
@@ -53,7 +56,6 @@ def update_acceleration(ball_coords, center_coords):
     diff = sub(ball_coords, center_coords)
     distance_2 = (diff.x ** 2 + diff.y ** 2) ** (3/2)
     G = 2000.0705395603
-    print(-diff.x*G/distance_2)
     return gr.Point(-diff.x*G/distance_2, -diff.y*G/distance_2)
 
 
@@ -61,7 +63,6 @@ def update_acceleration(ball_coords, center_coords):
 while True:
 
     circle.move(velocity.x, velocity.y)
-    # circle.clone().draw(window)
     acceleration = update_acceleration(circle.getCenter(), gr.Point(SIZE_X/2, SIZE_Y/2))
     velocity = update_velocity(velocity, acceleration)
 
