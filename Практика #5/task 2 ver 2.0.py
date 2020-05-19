@@ -9,7 +9,7 @@ window = gr.GraphWin('test', 500, 500)
 
 angle = -30
 deceleration = 0
-length = 0.6
+length = 0.1
 g = 9.80665
 
 coef = 400
