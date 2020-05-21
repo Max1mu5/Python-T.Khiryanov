@@ -30,7 +30,7 @@ def bunch(deep=1):
     turtle.left(60)
     bunch(deep-1)
 
-bunch(3)
+bunch(1)
 
 
 time.sleep(10)

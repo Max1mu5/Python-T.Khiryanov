@@ -2,7 +2,7 @@ import turtle
 import time
 
 turtle.shape('turtle')
-turtle.speed(6)
+turtle.speed('fastest')
 turtle.width(3)
 
 
@@ -25,6 +25,6 @@ def bunch(deep=1):
     bunch(deep - 1)
     turtle.left(45)
     
-bunch(9)
+bunch(3)
 
-time.sleep()
+time.sleep(2)

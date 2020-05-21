@@ -2,42 +2,42 @@ import turtle
 import time
 
 turtle.shape('turtle')
-turtle.speed(6)
-turtle.width(3)
+turtle.speed('fastest')
+turtle.width(0.5)
 
 
-length = 80
+length = 8
 
-def bunch(deep=1):
+
+def bunch(deep, direction):
     if deep == 0:
         turtle.forward(length)
-        return
-    if deep == 1:
-        turtle.left(90)
-        turtle.forward(length)
-        turtle.left(90)
-        turtle.forward(length)
-        turtle.right(90)
-        turtle.forward(length)
-        turtle.right(90)
-        turtle.forward(length)
-        return
-    elif deep == 2:
-        turtle.right(90)
-        turtle.forward(length)
-        turtle.left(90)
-        turtle.forward(length)
-        turtle.left(90)
-        turtle.forward(length)
-        turtle.right(90)
-        turtle.forward(length)
-        return
+    if not direction:
+        if deep == 1:
+            turtle.forward(length)
+            turtle.right(90)
+            print('right')
+            turtle.forward(length)
+            return
+    else:
+        if deep == 1:
+            turtle.forward(length)
+            turtle.left(90)
+            print('left')
+            turtle.forward(length)
+            return
 
-    turtle.right(45)
-    bunch(deep - 1)
-    # turtle.left(90)
+    bunch(deep - 1, True)
+    if direction:
+        turtle.left(90)
+    else:
+        turtle.right(90)
+    bunch(deep - 1, False)
 
-        
-bunch(1)
 
-time.sleep(10)
+n = 10
+turtle.right(n * 45)
+bunch(n, True)
+
+
+time.sleep(5)

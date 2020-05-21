@@ -48,6 +48,6 @@ def bunch(deep=1):
     bunch(deep - 1)
 
 
-bunch(2)
+bunch(1)
 
 time.sleep(2)
